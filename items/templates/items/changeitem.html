@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{error}}
+{% endif %}
+
+<h1>Editing {{item.id}}: {{item.name}} </h1>
+<hr>
+<form method="POST" action="{% url 'changeitem' item.id %}"  enctype="multipart/form-data">
+{% csrf_token %}
+
+    Item Name:
+    <br/>
+    {{item.name}}
+    <br/>
+    REF:
+    <br/>
+    {{item.referenceId}}
+    <br/>
+    Quantity:
+    <br/>
+    <input type="number" name="quantity" value="{{item.quantity}}"/>
+    <br/>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Save"/>
+
+</form>
+
+{% endblock %}

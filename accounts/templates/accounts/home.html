@@ -1,12 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Home Page</h1>
 <br>
-<div class="row">
+<h1>Home Page</h1>
+<div class="text-center">
+    <h5>An Inventory Automation Solution</h5>
+</div>
+<hr>
+<div class="row pt-5 text-center">
+    <div class="col-2 text-justify text-light">
+        <div class="square square-lg bg-secondary bg-gradient p-5" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
+            <h4>Item List</h4>
+        </div>
+        <br/>
+        <div class="square square-lg bg-success bg-gradient p-5" onclick="window.location='{% url 'requestitem' %}';" style="cursor:pointer">
+            <h4>Request Item</h4>
+        </div>
+    </div>
+    <div class="col-2 text-center  text-dark">
+        <div class="square square-lg bg-danger bg-gradient p-5" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
+            <h4>Case Log</h4>
+        </div>
+        <br>
+        <div class="square square-lg bg-warning bg-gradient pt-5 p-5" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
+            <h4>Procedure List</h4>
+        </div>
+    </div>
+    <div class="col-4 text-justify text-dark square pt-5 bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
+        <h3 class="p-5">Manage <br> 
+            Inventory</h3>
+    </div> 
     <div class="col-4">
-        <h4>Item List</h4>
+        <h5>About Dashboard</h5>  
+        <hr>
+        <p>
+            The Home page is resident to the IMA Dashboard. Here, users and guests will be able to view the inventory list and procedure list as they are shown.
+            Users exclusivly will be able to request items, view the case log and manage the quantity of items in stock. To be able to access the "Request Item", "Case Log",
+            and "Manage Inventory" menus, one will need to create a user account <a href="{% url 'register' %}">here</a>. 
+        </p> 
     </div>
 </div>
 

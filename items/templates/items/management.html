@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--set up for adding and deducting from inventory-->
+
+<h1>Manage:Item List</h1>
+<hr>
+<!--Headers for Manage Item List-->
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Item</th>
+        <th scope="col">RefID</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Update:</th>
+      </tr>
+    </thead>
+    <!--for loop code for info within management List-->
+    {% for item in item.all %}
+    <tbody>
+      <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.referenceId}}</td>
+        <td>{{item.quantity}}</td>
+        <td><a href="{% url 'changeitem' item.id%}"><button class="btn btn-primary btn-sm btn-block">Change</button></a></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock  %}

@@ -2,6 +2,65 @@
 
 {% block content %}
 
+<!--This is the page for setting up the Item List and Request lists using for loops-->
+
 <h1>Item List</h1>
+<hr>
+<!--Headers for Inventory List-->
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Item</th>
+        <th scope="col">RefID</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <!--for loop code for info within Item List-->
+    {% for item in items.all %}
+    <tbody>
+      <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.referenceId}}</td>
+        <td>{{item.quantity}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+<h1>Requests</h1>
+<hr>
+<!--Headers for Requests list-->
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Item</th>
+        <th scope="col">RefID</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Submited By:</th>
+        <th scope="col">Comment</th>
+      </tr>
+    </thead>
+    <!--for loop code for requests info in list-->
+    {% for ritem in ritem.all %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ritem.subdate}}</th>
+        <td>{{ritem.namer}}</td>
+        <td>{{ritem.referenceIdr}}</td>
+        <td>{{ritem.quantityr}}</td>
+        <td>{{ritem.completed}}</td>
+        <td>{{ritem.account.username}}</td>
+        <td>{{ritem.comment}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+    <div class="col-12"><a href="{% url 'management' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Manage</button></a></div>
+    <div class="col-11"><a href="{% url 'requestitem' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Request Item</button></a></div>
 
 {% endblock  %}

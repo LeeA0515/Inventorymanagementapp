@@ -121,12 +121,13 @@
     </svg>
 
     
-<header data-bs-theme="dark">
+<header data-bs-theme="light">
     
      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <div class="container-fluid">
                 <a class="navbar-brand" href= "{% url 'home' %}">
+                    <img src="{% static 'box.png' %}" height="40" width="40" class="d-inline-block align-top"/>
                     Inventory Management Application
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -135,16 +136,17 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                       {% if user.is_authenticated %}
-                      <a class="nav-link" aria-current="page" href="#">Manage</a>
+                      <a class="nav-link" href="{% url 'about' %}">About</a>
+                      <a class="nav-link" aria-current="page" href="{% url 'management' %}">Manage</a>
                       <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Log Out</a>
                       <form id="logout" method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <input type="hidden"/>
                       </form> 
                       {% else %}
+                      <a class="nav-link" href="{% url 'about' %}">About</a>
                       <a class="nav-link" aria-current="page" href="{% url 'register' %}">Register</a>
                       <a class="nav-link" href="{% url 'login' %}">Login</a>
-                      <a class="nav-link" href="#">About</a>
                       {% endif %}
                     </div>
                 </div>
@@ -158,9 +160,11 @@
   {% endblock %}
 </div>
 
-<footer class="text-body-secondary py-5">
+<footer class="text-body-secondary pb-3 pt-5">
   <div class="container text-center">
-    <p>Bingo Bango Bongo {% now "Y" %}</p>
+    <hr>
+    <p>Woodin, Brent D. {% now "Y" %}</p>
+    <a href="https://www.flaticon.com/free-icons/inventory" title="inventory icons">Inventory icons created by Freepik - Flaticon</a>
   </div>
 </footer>
 

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{error}}
+{% endif %}
+
+<h1>Add a Item</h1>
+
+<form method="POST" action="{% url 'additem' %}"  enctype="multipart/form-data">
+{% csrf_token %}
+
+    Item Name:
+    <br/>
+    <input type="text" name="name"/>
+    <br/>
+    REF:
+    <br/>
+    <input type="text" name="referenceId"/>
+    <br/>
+    Quantity:
+    <br/>
+    <input type="text" name="quantity"/>
+    <br/>
+    <br/>
+    <input class="btn btn-primary" type="submit" value="Add"/>
+
+</form>
+
+{% endblock %}

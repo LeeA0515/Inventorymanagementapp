@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 def home(request):
     return render(request, 'accounts/home.html')
 
+def about(request):
+    return render(request, 'accounts/about.html')
+
 def register(request):
 
     if request.method == 'POST':

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{error}}
+{% endif %}
+
+<h1>Request an Item</h1>
+
+<form method="POST" action="{% url 'requestitem' %}"  enctype="multipart/form-data">
+{% csrf_token %}
+
+    Item Name:
+    <br/>
+    <input type="text" name="namer"/>
+    <br/>
+    REF:
+    <br/>
+    <input type="text" name="referenceIdr"/>
+    <br/>
+    Quantity:
+    <br/>
+    <input type="" name="quantityr"/>
+    <br/>
+    Comment:
+    <br/>
+    <input type="textarea" style="height: 100px; width: 200px;" name="comment" value=""/>
+    <br>
+    Specify whether you're wanting an item ordered or want an item added to the item list.
+    <br/>
+    <br/>
+    <input class="btn btn-primary" type="submit" value="Add"/>
+
+</form>
+
+{% endblock %}
