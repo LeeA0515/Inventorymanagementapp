@@ -3,10 +3,13 @@
 {% block content %}
 
 {% if error %}
-{{error}}
+<br>
+<p style="color:red">{{error}}</p>
 {% endif %}
 
 <h1>Request an Item</h1>
+<p class="lead">Please keep requests limited to consumables only. Do not submit requests for equipment i.e. instruments, drill systems, microscopes etc. </p>
+<hr>
 
 <form method="POST" action="{% url 'requestitem' %}"  enctype="multipart/form-data">
 {% csrf_token %}
@@ -15,19 +18,22 @@
     <br/>
     <input type="text" name="namer"/>
     <br/>
+    <br>
     REF:
     <br/>
-    <input type="text" name="referenceIdr"/>
-    <br/>
+    <input type="text" name="referenceIdr"/><p>Tip: make sure to enter the Ref ID as accurate as possible.</p>
     Quantity:
     <br/>
     <input type="" name="quantityr"/>
     <br/>
+    <br>
     Comment:
     <br/>
-    <input type="textarea" style="height: 100px; width: 200px;" name="comment" value=""/>
+    <!--<input type="textarea" style="height: 100px; width: 200px;" name="comment" value=""/>-->
+    <textarea name="comment" value="" style="width:200px">
+    </textarea>
     <br>
-    Specify whether you're wanting an item ordered or want an item added to the item list.
+    <p style="font-size:18px" class="lead">Hint:Specify whether you want an item ordered, added to the item list, or both.</p>
     <br/>
     <br/>
     <input class="btn btn-primary" type="submit" value="Add"/>

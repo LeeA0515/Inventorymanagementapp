@@ -6,6 +6,8 @@ class Item(models.Model):
     name = models.CharField(max_length=75)
     referenceId = models.CharField()
     quantity = models.IntegerField()
+    parlevel = models.IntegerField()
+    expdate = models.DateField(auto_now=False, auto_now_add=False)
 
     account = models.ForeignKey(User, on_delete=models.DO_NOTHING) 
 

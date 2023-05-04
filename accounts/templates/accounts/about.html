@@ -2,22 +2,51 @@
 
 {% block content %}
 
-<h1>About IMA</h1>
-<hr>
+<main role="main">
 
-<div>
-    <p class="lead">
-        Inventory Management Application or IMA, is an automation solution for managing high traffic or critical supplies in the workspace.
-        Built to be light-weight, easily-accessible, and user-friendly, so any persons needing a quick overview of supply or needs an item changed/ordered
-        can easily do so hassle-free from anywhere on any device. Due to this nature of the application, IMA-site WILL NOT host any patient, personal/private,
-        or other sensitive information. The site will actively be monitored in this regard. The idea for IMA came to fruition when a staff surgeon asked myself
-        to generate a living spreadsheet of all consumable inventory within the service. As I began taking the steps neccasary to accomplish this task, it began
-        to daunt on me how steep a task that sounds so simple was to maintain. Generating the actual spreadsheet was no issue to say the least. Keeping track of every single
-        consumable, how much we have of it, when it will expire, and updating that on a near daily basis just isn't possible given the amount of time surge techs
-        spend in and around the operating rooms. The scope of this project, IMA, is identical in nature. But once done, will automate the process of keeping track
-        of these consumables with little to no effort. I will continue to maintain and develop IMA for as long as it is used, and may it serve future personel
-        in managing inventory with ease. - Woodin, Brent
-    </p>
-</div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container p-5">
+        <h1 class="display-3">Hello, IMA!</h1>
+        <p class="lead" style="font-size:24px">Inventory Management Application or IMA, is an automation solution for managing high traffic/critical supplies in the OR.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Use it anywhere!</h2>
+          <hr>
+          <p>Built to be light-weight, easily-accessible, and user-friendly, so any persons needing a quick overview of supply or needs an item changed/ordered
+            can easily do so hassle-free from anywhere on any device. Due to this nature of the application, IMA-site WILL NOT host any patient, personal/private,
+            or other sensitive information. The site will actively be monitored in this regard. </p>
+        </div>
+        <div class="col-md-4">
+          <h2>Back Story</h2>
+          <hr>
+          <p> The idea for IMA came to fruition when a staff surgeon asked myself
+            to generate a living spreadsheet of all consumable inventory within the service. As I began taking the steps neccasary to accomplish this task, it began
+            to daunt on me how tedious and time-consuming the endeavor would be. Generating the actual spreadsheet was no issue to say the least. Keeping track of every single
+            consumable, how much we have of it, when it will expire, and updating that on a near daily basis just isn't possible given the amount of time surge techs
+            spend in and around the operating rooms. Leaving much room for error. </p>
+        </div>
+        <div class="col-md-4">
+          <h2>Goals & Future Development</h2>
+          <hr>
+          <p>The scope of this project, IMA, is also no small feat to establish. But once done, will automate the process of keeping track
+            of these consumables with little to no effort. Minimizing fault resulting in diminished critical supply, in turn establishing a cohesive work flow in ENT operating rooms. I will continue to maintain and develop IMA for as long as it is used, and may it serve future personel
+            in managing inventory with ease. </p>
+        </div>
+      </div>
+      <div style="float:right">
+        <p class="lead" style="text-align:justify float:right">- Woodin, Brent</p>
+      </div>
+
+    </div> <!-- /container -->
+
+  </main>
+
+
 
 {% endblock %}

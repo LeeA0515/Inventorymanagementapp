@@ -3,7 +3,8 @@
 {% block content %}
 
 {% if error %}
-{{error}}
+<br>
+<p style="color:red">{{error}}</p>
 {% endif %}
 
 <h1>Editing {{item.id}}: {{item.name}} </h1>
@@ -13,18 +14,22 @@
 
     Item Name:
     <br/>
-    {{item.name}}
+    <input type="text" name="name" value="{{item.name}}"/>
     <br/>
     REF:
     <br/>
-    {{item.referenceId}}
+    <input type="text" name="referenceId" value="{{item.referenceId}}"/>
     <br/>
     Quantity:
     <br/>
     <input type="number" name="quantity" value="{{item.quantity}}"/>
     <br/>
     <br>
+    Expiration Date:
+    <br/>
+    <input type="date" name="expdate" value="{{item.expdate|date:"Y-m-d"}}"/>
     <input class="btn btn-primary" type="submit" value="Save"/>
+    
 
 </form>
 

@@ -4,7 +4,9 @@
 
 <!--set up for adding and deducting from inventory-->
 
-<h1>Manage:Item List</h1>
+<h1>Manage: Item List</h1>
+<p class="lead text-center">Here changes to an items name, ref ID, and quantity can be made</p>
+<br>
 <hr>
 <!--Headers for Manage Item List-->
 <table class="table table-striped">
@@ -14,20 +16,38 @@
         <th scope="col">Item</th>
         <th scope="col">RefID</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Exp Date</th>
         <th scope="col">Update:</th>
       </tr>
     </thead>
     <!--for loop code for info within management List-->
     {% for item in item.all %}
+    {% if item.quantity <= item.parlevel%}
+    <tbody>
+      <tr class="table-danger">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.referenceId}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.expdate}}</td>
+        <td><a href="{% url 'changeitem' item.id%}"><button class="btn btn-primary btn-sm btn-block">Edit</button></a></td>
+      </tr>
+    </tbody>
+    {% else %}
     <tbody>
       <tr>
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
         <td>{{item.referenceId}}</td>
         <td>{{item.quantity}}</td>
-        <td><a href="{% url 'changeitem' item.id%}"><button class="btn btn-primary btn-sm btn-block">Change</button></a></td>
+        <td>{{item.expdate}}</td>
+        <td><a href="{% url 'changeitem' item.id%}"><button class="btn btn-primary btn-sm btn-block">Edit</button></a></td>
       </tr>
     </tbody>
+    {% endif %}
     {% endfor %}
 </table>
+<div class="col-12"><a href="{% url 'itemlist' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Item List</button></a></div>
+<div class="col-11"><a href="{% url 'requestitem' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Request Item</button></a></div>
+
 {% endblock  %}

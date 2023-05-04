@@ -3,11 +3,13 @@
 {% block content %}
 
 {% if error %}
-{{error}}
+<br>
+<p style="color:red">{{error}}</p>
 {% endif %}
 
 <h1>Register</h1>
-
+<p class="lead">Create a user account here. Note: Personal info is not required.</p>
+<hr>
 <form method="POST" action="{% url 'register' %}">
 {% csrf_token %}
 
@@ -15,16 +17,21 @@
     <br/>
     <input type="text" name="username"/>
     <br/>
+    <p>Note: Please try to refrain from tacky and offensive usernames.</p>
     Password:
     <br/>
     <input type="password" name="password1"/>
-    <br/>
+    <p>Note: There are no restictions on password creation, but please still try to use a strong entry.</p>
     Confirm Password:
     <br/>
     <input type="password" name="password2"/>
     <br/>
-    <br/>
+    <p>Note: You will automatically be logged in when you register, please remember your username and password.</p>
     <input class="btn btn-primary" type="submit" value="Register"/>
+    <br>
+    <br>
+    <p>Already registered? Log in <a href="{% url 'login' %}">here.</a></p>
+    
 
 </form>
 

@@ -3,24 +3,30 @@
 {% block content %}
 
 {% if error %}
-{{error}}
+<br>
+<p style="color:red">{{error}}</p>
 {% endif %}
-
 <h1>Log In</h1>
 
 <form method="POST" action="{% url 'login' %}">
 {% csrf_token %}
 
     Username:
-    <br/>
+    <br>
     <input type="text" name="username"/>
-    <br/>
+    <br>
+    <br>
     Password:
-    <br/>
+    <br>
     <input type="password" name="password"/>
-    <br/>
-    <br/>
+    <br>
+    <br>
     <input class="btn btn-primary" type="submit" value="Login"/>
+    <br>
+    <br>
+    <p>Not registered yet? Register <a href="{% url 'register' %}">here.</a></p>
+    <p class="lead">Note: If you forget your username or password,<br> contact the system admin(Brent Woodin),<br> and the issue will be resolved momentarily.</p>
+    
 
 </form>
 

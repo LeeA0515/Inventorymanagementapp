@@ -4,7 +4,8 @@
 
 <!--This is the page for setting up the Item List and Request lists using for loops-->
 
-<h1>Item List</h1>
+<h1>ENT: Inventory List</h1>
+<p class="lead text-center">Overview of items currently in stock</p>
 <hr>
 <!--Headers for Inventory List-->
 <table class="table table-striped">
@@ -14,22 +15,38 @@
         <th scope="col">Item</th>
         <th scope="col">RefID</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Earliest Exp Date</th>
       </tr>
     </thead>
     <!--for loop code for info within Item List-->
     {% for item in items.all %}
+    <!--if statement for highlight low stock items-->
+    {% if item.quantity <= item.parlevel%}
+    <tbody>
+      <tr class="table-danger">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.referenceId}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.expdate}}</td>
+      </tr>
+    </tbody>
+    {% else %}
     <tbody>
       <tr>
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
         <td>{{item.referenceId}}</td>
-        <td>{{item.quantity}}</td>
+        <td >{{item.quantity}}</td>
+        <td>{{item.expdate}}</td>
       </tr>
     </tbody>
+    {% endif %}
     {% endfor %}
 </table>
-
-<h1>Requests</h1>
+<br>
+<h1>ENT: Requests</h1>
+<p class="lead text-center">Recently posted inventory requests</p>
 <hr>
 <!--Headers for Requests list-->
 <table class="table table-striped">
@@ -46,6 +63,19 @@
     </thead>
     <!--for loop code for requests info in list-->
     {% for ritem in ritem.all %}
+    {% if ritem.completed == True %}
+    <tbody>
+      <tr class="table-success">
+        <th scope="row">{{ritem.subdate}}</th>
+        <td>{{ritem.namer}}</td>
+        <td>{{ritem.referenceIdr}}</td>
+        <td>{{ritem.quantityr}}</td>
+        <td>{{ritem.completed}}</td>
+        <td>{{ritem.account.username}}</td>
+        <td>{{ritem.comment}}</td>
+      </tr>
+    </tbody>
+    {% else %}
     <tbody>
       <tr>
         <th scope="row">{{ritem.subdate}}</th>
@@ -57,6 +87,7 @@
         <td>{{ritem.comment}}</td>
       </tr>
     </tbody>
+    {% endif %}
     {% endfor %}
 </table>
 
