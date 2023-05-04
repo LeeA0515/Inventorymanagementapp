@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'imadb',
         'USER': 'brentwoodin',
-        'PASSWORD': 'Akkilla12!',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
 
@@ -139,6 +139,6 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
