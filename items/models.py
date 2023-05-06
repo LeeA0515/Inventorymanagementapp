@@ -26,3 +26,6 @@ class Request(models.Model):
 
     def __str__(self):
         return self.namer
+    
+    def formatDate(self):
+        return self.subdate.strftime('%x')

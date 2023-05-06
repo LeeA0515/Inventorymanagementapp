@@ -8,26 +8,30 @@
 </div>
 <hr>
 <div class="row pt-5 text-center">
-    <div class="col-2 text-justify text-dark">
-        <div class="square square-lg bg-warning bg-gradient p-5" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
+    <div class="col-6 text-justify text-dark">
+        <div class="square square-lg rounded bg-warning bg-gradient p-5" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
             <h4>Item List</h4>
         </div>
         <br/>
-        <div class="square square-lg bg-danger bg-gradient p-5" onclick="window.location='{% url 'requestitem' %}';" style="cursor:pointer">
+        <div class="square square-lg rounded bg-danger bg-gradient p-5" onclick="window.location='{% url 'requestitem' %}';" style="cursor:pointer">
             <h4>Request Item</h4>
         </div>
     </div>
-    <div class="col-4 text-justify text-dark square pt-5 bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
+    <div class="col-6 text-justify text-dark square square-lg rounded pt-5 bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
         <h3 class="p-5">Manage <br> Inventory</h3>
     </div> 
-    <div class="col-6">
-        <h5>About Dashboard</h5>  
-        <hr>
-        <p>
-            The Home page is resident to the IMA Dashboard. Here, users and guests will be able to view the inventory list as it is shown and read the about page.
-            Users exclusivly will be able to request items, and manage the information of items in stock. To be able to access the "Request Item",
-            and "Manage Inventory" menus, one will need to create a user account <a href="{% url 'register' %}">here</a>. 
-        </p> 
+    <br>
+    <br>
+    <div class="row mt-3">
+        <div class="col-12">
+            <h5>About Dashboard</h5>  
+            <hr>
+            <p>
+                The Home page is resident to the IMA Dashboard. Here, users and guests will be able to view the inventory list as it is shown and read the about page.
+                Users exclusivly will be able to request items, and manage the information of items in stock. To be able to access the "Request Item",
+                and "Manage Inventory" menus, one will need to create a user account <a href="{% url 'register' %}">here</a>. 
+            </p> 
+        </div>
     </div>
 </div>
 
