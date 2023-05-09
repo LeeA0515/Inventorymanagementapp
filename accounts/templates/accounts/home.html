@@ -7,23 +7,26 @@
     <p class="lead">An Inventory Accountibility Solution</p>
 </div>
 <hr>
-<div class="row pt-5 text-center">
-    <div class="col-6 text-justify text-dark">
-        <div class="square square-lg rounded bg-warning bg-gradient p-5" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
+<div class="row pt-5 text-center" style="color:#555">
+    <div class="col-2"></div>
+    <div class="col-4 text-justify text-dark">
+        <div class="square square-lg rounded bg-warning bg-gradient p-4" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
             <h4>Item List</h4>
         </div>
         <br/>
-        <div class="square square-lg rounded bg-danger bg-gradient p-5" onclick="window.location='{% url 'requestitem' %}';" style="cursor:pointer">
+        <div class="square square-lg rounded bg-danger bg-gradient p-4" onclick="window.location='{% url 'requestitem' %}';" style="cursor:pointer">
             <h4>Request Item</h4>
         </div>
     </div>
-    <div class="col-6 text-justify text-dark square square-lg rounded pt-5 bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
-        <h3 class="p-5">Manage <br> Inventory</h3>
+    <div class="col-4 text-justify text-dark square square-lg rounded bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
+        <h4 class="p-4"> <br> Manage <br> Inventory</h4>
     </div> 
+    <div class="col-2"></div>
     <br>
     <br>
     <div class="row mt-3">
-        <div class="col-12">
+        <div class="col-1"></div>
+        <div class="col-10">
             <h5>About Dashboard</h5>  
             <hr>
             <p>
@@ -32,6 +35,7 @@
                 and "Manage Inventory" menus, one will need to create a user account <a href="{% url 'register' %}">here</a>. 
             </p> 
         </div>
+        <div class="col-1"></div>
     </div>
 </div>
 
