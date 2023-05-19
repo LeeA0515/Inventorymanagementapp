@@ -7,9 +7,9 @@
     <p class="lead">An Inventory Accountibility Solution</p>
 </div>
 <hr>
-<div class="row pt-5 text-center" style="color:#555">
-    <div class="col-2"></div>
-    <div class="col-4 text-justify text-dark">
+<div class="container row pt-5 text-center" style="color:#555">
+    
+    <div class="col-6 text-justify text-dark">
         <div class="square square-lg rounded bg-warning bg-gradient p-4" onclick="window.location='{% url 'itemlist' %}';" style="cursor:pointer">
             <h4>Item List</h4>
         </div>
@@ -18,25 +18,47 @@
             <h4>Request Item</h4>
         </div>
     </div>
-    <div class="col-4 text-justify text-dark square square-lg rounded bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
+    <div class="col-6 text-justify text-dark square square-lg rounded bg-info bg-gradient" onclick="window.location='{% url 'management' %}';" style="cursor:pointer">
         <h4 class="p-4"> <br> Manage <br> Inventory</h4>
     </div> 
-    <div class="col-2"></div>
+
     <br>
     <br>
     <div class="row mt-3">
-        <div class="col-1"></div>
-        <div class="col-10">
-            <h5>About Dashboard</h5>  
-            <hr>
-            <p>
-                The Home page is resident to the IMA Dashboard. Here, users and guests will be able to view the inventory list as it is shown and read the about page.
-                Users exclusivly will be able to request items, and manage the information of items in stock. To be able to access the "Request Item",
-                and "Manage Inventory" menus, one will need to create a user account <a href="{% url 'register' %}">here</a>. 
-            </p> 
+        <div class="container">
+            <div class="col-12">
+                <br>
+                <h5 class="text-center">About Dashboard</h5>  
+                <hr>
+                <p>
+                    The Home page is resident to the IMA Dashboard. Here, users and guests will be able to view the inventory list as it is shown and read the about page.
+                    Users exclusivly will be able to request items, and manage the information of items in stock. To be able to access the "Request Item",
+                    and "Manage Inventory" menus, one will need to create a user account <a href="{% url 'register' %}">here</a>. Also, the Message Board is below.
+                    The Message Board is where you can find recent updates and posts regarding supply.
+                </p> 
+            </div>
         </div>
-        <div class="col-1"></div>
+       
     </div>
+</div>
+<br>
+<div class="container col-12">
+    <h2 class="text-center">Message Board</h2>
+    <p class="lead text-center">If you're a registered user, feel free to post information regarding supply.</p>
+    <a href="{% url 'createpost' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Create Post</button></a>
+    <br>
+    <hr>
+    <h3>Lastest Post:</h3>
+    {% for message in messages.all %}
+    <div class="row square rounded p-3 bg-transparent">
+        <h4>{{message.topic}}</h4>
+        <p>{{message.formatDate}}</p>
+        <p>{{message.body}}</p>
+        <p style="text-align:right">-{{message.poster}}</p>
+        <hr>
+    </div>
+    {% endfor %}
+
 </div>
 
 {% endblock  %}

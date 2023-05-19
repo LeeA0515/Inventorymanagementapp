@@ -13,6 +13,9 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        ordering = ['expdate']
 
 class Request(models.Model):
     namer = models.CharField(max_length=75)
@@ -29,3 +32,6 @@ class Request(models.Model):
     
     def formatDate(self):
         return self.subdate.strftime('%x')
+    
+    class Meta:
+        ordering = ['-subdate']

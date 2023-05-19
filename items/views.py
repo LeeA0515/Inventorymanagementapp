@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -72,6 +73,7 @@ def changeitem(request,item_id):
 
 #function for itemlist page which also holds the request list
 def itemlist(request):
-    ritem = Request.objects
     items = Item.objects
+    ritem = Request.objects
+
     return render(request, 'items/itemlist.html', {'items':items, 'ritem':ritem})

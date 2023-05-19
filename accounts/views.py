@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.utils import timezone
+from .models import Message
 
 def home(request):
-    return render(request, 'accounts/home.html')
+    messages = Message.objects
+    return render(request, 'accounts/home.html', {'messages': messages})
 
 def about(request):
     return render(request, 'accounts/about.html')
@@ -39,3 +43,19 @@ def logoff(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
+
+@login_required
+def createpost(request):
+    if request.method == 'POST':
+        if request.POST['topic'] and request.POST['body']:
+            message = Message()
+            message.topic = request.POST['topic']
+            message.body = request.POST['body']
+            message.date = timezone.datetime.now()
+            message.poster = request.user
+            message.save()
+            return redirect('home')
+        else:
+            return render(request, 'accounts/createpost.html', {'error':'Please enter a topic and a message'})
+    else:
+        return render(request, 'accounts/createpost.html')

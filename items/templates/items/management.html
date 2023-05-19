@@ -12,7 +12,6 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Index</th>
         <th scope="col">Item</th>
         <th scope="col">RefID</th>
         <th scope="col">Quantity</th>
@@ -25,8 +24,7 @@
     {% if item.quantity <= item.parlevel%}
     <tbody>
       <tr class="table-danger">
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.name}}</td>
+        <th scope="row">{{item.name}}</th>
         <td>{{item.referenceId}}</td>
         <td>{{item.quantity}}</td>
         <td>{{item.expdate}}</td>
@@ -36,8 +34,7 @@
     {% else %}
     <tbody>
       <tr>
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.name}}</td>
+        <th scope="row">{{item.name}}</th>
         <td>{{item.referenceId}}</td>
         <td>{{item.quantity}}</td>
         <td>{{item.expdate}}</td>
@@ -47,6 +44,7 @@
     {% endif %}
     {% endfor %}
 </table>
+<div class="col-12"><a href="{% url 'additem' %}" style="float:right"><button class="btn btn-danger btn-sm btn-block">Add Item</button></a></div>
 <div class="col-12"><a href="{% url 'itemlist' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Item List</button></a></div> 
 <div class="col-11"><a href="{% url 'requestitem' %}" style="float:right"><button class="btn btn-primary btn-sm btn-block">Request Item</button></a></div>
 

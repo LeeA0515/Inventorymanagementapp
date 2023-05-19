@@ -12,21 +12,20 @@
   <table class="table table-striped col-12">
       <thead>
         <tr>
-          <th scope="col">Index</th>
           <th scope="col">Item</th>
           <th scope="col">RefID</th>
           <th scope="col">Quantity</th>
           <th scope="col">Earliest Exp Date</th>
         </tr>
       </thead>
+      
       <!--for loop code for info within Item List-->
       {% for item in items.all %}
       <!--if statement for highlight low stock items-->
       {% if item.quantity <= item.parlevel%}
       <tbody>
         <tr class="table-danger">
-          <th scope="row">{{item.id}}</th>
-          <td>{{item.name}}</td>
+          <th scope="row">{{item.name}}</th>
           <td>{{item.referenceId}}</td>
           <td>{{item.quantity}}</td>
           <td>{{item.expdate}}</td>
@@ -35,8 +34,7 @@
       {% else %}
       <tbody>
         <tr>
-          <th scope="row">{{item.id}}</th>
-          <td>{{item.name}}</td>
+          <th scope="row">{{item.name}}</th>
           <td>{{item.referenceId}}</td>
           <td >{{item.quantity}}</td>
           <td>{{item.expdate}}</td>
@@ -46,6 +44,8 @@
       {% endfor %}
   </table>
 </div>
+<div class="col-12"><a href="{% url 'additem' %}" style="float:right"><button class="btn btn-danger btn-sm btn-block">Add Item</button></a></div>
+<p class="text-danger">Warning: Please only use the add item feature if you know what you are doing! Contact Brent Woodin for more info.</p>
 <br>
 <h1>ENT: Requests</h1>
 <p class="lead text-center">Recently posted inventory requests. If an entry is highlighted green, then the request has been ordered.</p>

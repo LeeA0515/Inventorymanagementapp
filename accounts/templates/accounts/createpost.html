@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+<br>
+<p style="color:red">{{error}}</p>
+{% endif %}
+
+<h1>Create a Message:</h1>
+
+<form method="POST" action="{% url 'createpost' %}"  enctype="multipart/form-data">
+{% csrf_token %}
+
+    Topic
+    <br/>
+    <input type="text" name="topic"/>
+    <br/>
+    Message:
+    <br/>
+    <textarea name="body" value="" style="width:500px; height:400px;">
+    </textarea>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Post"/>   
+</form>
+<br>
+<a href="{% url 'home' %}"><button class="btn btn-primary btn-sm btn-block">Cancel</button></a>
+
+{% endblock %}
