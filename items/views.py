@@ -46,7 +46,7 @@ def requestitem(request):
     else:
         return render(request, 'items/requestitem.html')          
 
-#function for function for item management overview 
+#function for item management overview 
 @login_required
 def management(request):
     item = Item.objects

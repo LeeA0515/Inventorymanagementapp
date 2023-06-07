@@ -6,6 +6,9 @@
 
 <h1>ENT: Inventory List</h1>
 <p class="lead text-center">Overview of items currently in stock</p>
+{% if success %}
+<p class="text-success">{{success}}</p>
+{% endif %}
 <hr>
 <!--Headers for Inventory List-->
 <div class="row">
