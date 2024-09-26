@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+<br>
+<p style="color:red">{{error}}</p>
+{% endif %}
+
+<h1>Editing {{equip.id}}: {{equip.name}} </h1>
+<hr>
+<form method="POST" action="{% url 'changeequip' equip.id %}"  enctype="multipart/form-data">
+{% csrf_token %}
+
+    Nomenclature:
+    <br/>
+    <input type="text" name="name" value="{{equip.name}}"/>
+    <br/>
+    ECN:
+    <br/>
+    <input type="text" name="referenceId" value="{{equip.ecn}}"/>
+    <br/>
+    ECN Expiration Date:
+    <br/>
+    <input type="date" name="ecndate" value="{{equip.ecndate|date:"Y-m-d"}}"/>
+    <input class="btn btn-primary" type="submit" value="Save"/>
+    
+
+</form>
+
+{% endblock %}

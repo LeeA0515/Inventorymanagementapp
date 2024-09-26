@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'cases.apps.CasesConfig',
     'items.apps.ItemsConfig',
     'accounts.apps.AccountsConfig',
+    'equipment.apps.EquipmentConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

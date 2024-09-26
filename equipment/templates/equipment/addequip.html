@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+<br>
+<p style="color:red">{{error}}</p>
+{% endif %}
+
+<h1>Add an Equipment</h1>
+
+<form method="POST" action="{% url 'addequip' %}"  enctype="multipart/form-data">
+{% csrf_token %}
+
+    Nomenclature:
+    <br/>
+    <input type="text" name="name"/>
+    <br/>
+    ECN:
+    <br/>
+    <input type="text" name="ecn"/>
+    <br/>
+    ECN Expiration Date:
+    <br>
+    <input type="date" name="ecndate"/>
+    <input class="btn btn-primary" type="submit" value="Add"/>
+
+</form>
+
+{% endblock %}

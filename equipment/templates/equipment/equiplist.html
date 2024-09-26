@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--This is the page for setting up the equipment list using for loops-->
+
+<h1>ENT: Equipment List</h1>
+<p class="lead text-center">Overview of equipment currently in use.</p>
+{% if success %}
+<p class="text-success">{{success}}</p>
+{% endif %}
+<hr>
+<!--Headers for Equipment List-->
+<div class="row">
+  <table class="table table-striped col-12">
+      <thead>
+        <tr>
+          <th scope="col">Nomenclature</th>
+          <th scope="col">ECN</th>
+          <th scope="col">ECN Exp Date</th>
+        </tr>
+      </thead>
+      
+      <!--for loop code for info within Equipment List-->
+      {% for equip in equip.all %}
+      <tbody>
+        <tr>
+          <th scope="row">{{equip.name}}</th>
+          <td>{{equip.ecn}}</td>
+          <td >{{equip.ecndate}}</td>
+          <td><a href="{% url 'changeequip' equip.id%}"><button class="btn btn-primary btn-sm btn-block">Edit</button></a></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+  </table>
+</div>
+<div class="col-12"><a href="{% url 'addequip' %}" style="float:right"><button class="btn btn-danger btn-sm btn-block">Add Equipment</button></a></div>
+<p class="text-danger">Warning: Please only use the add equipment feature if you know what you are doing! Contact Brent Woodin for more info.</p>
+<br>
+{% endblock  %}
